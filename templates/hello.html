@@ -1,0 +1,20 @@
+<h1>Hello there from html<h1>
+<p1>Name is:</p1>
+{{name}}
+{% if x > y %}
+    <p>{{x}} is greater</p>
+{% else %}
+    <p>{{y}} is greater</p>
+{% endif %}
+
+{% if x > y and x > w %}
+    <p>{{x}} is greater</p>
+{% elif y > x and y > w %}
+    <p>{{y}} is greater</p>
+{% else %}
+    <p>{{w}} is greater</p>
+{% endif %}
+
+{% for i in z %}
+    <p>{{i}}</p>
+{% endfor %}

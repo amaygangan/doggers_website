@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Nation</title>
+</head>
+<body>
+    <h1>WELCOME TO THE EDIT PAGE OF DOGGERS</h1>
+    
+    <!-- {% for x in data %} -->
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            {% for x in data %}
+            <tr>
+                <th>Breed Name:</th>
+                <td><input type="text" name="bname" value="{{x.breed_name}}"></td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    
+                    <select name="gend">
+                        {% if x.gender == "1" %}
+                            <option value="1">Male</option>
+                        {% else %}
+                            <option value="2">Female</option>
+                        {% endif %}
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td><input type="number" name="age" value="{{x.age}}"></td>
+            </tr>
+            <tr>
+                <th>Vaccination:</th>
+                <td>
+                    {% if x.vaccine == "1" %}
+                        <input type="radio" name="vac" value="1" checked>Done
+                        <input type="radio" name="vac" value="2">Pending
+                    {% else %}
+                        <input type="radio" name="vac" value="1">Done
+                        <input type="radio" name="vac" value="2" checked>Pending
+                    {% endif %}
+                </td>
+
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td><input type="number" name="price" value="{{x.price}}"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Update</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    <!-- {% endfor %} -->
+    
+</body>
+</html>

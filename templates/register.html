@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+</head>
+<body>
+    <h1 align="center">User Registration Form</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table border="1" align="center">
+            <!-- {{regform}}  use this for standard form -->
+            {% for x in regform %}
+                <tr>
+                    <th>{{x.label_tag}}</th>
+                    <td>{{x}}</td>
+                </tr>
+            {% endfor %}
+        
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Register"></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>

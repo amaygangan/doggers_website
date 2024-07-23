@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Nation</title>
+</head>
+<body>
+    <h1>WELCOME TO THE WORLD OF DOGGERS</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th>Breed Name:</th>
+                <td><input type="text" name="bname"></td>
+            </tr>
+            <tr>
+                <th>Gender:</th>
+                <td>
+                    <select name="gend">
+                        <option value="1">Male</option>
+                        <option value="2">Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Age:</th>
+                <td><input type="number" name="age"></td>
+            </tr>
+            <tr>
+                <th>Vaccination:</th>
+                <td>
+                    <input type="radio" name="vac" value="1">Done
+                    <input type="radio" name="vac" value="2">Pending
+                </td>
+            </tr>
+            <tr>
+                <th>Price:</th>
+                <td><input type="number" name="price"></td>
+            </tr>
+            <tr>
+                <td><button type="submit">Save</button></td>
+            </tr>
+
+        </table>
+    </form>
+
+    
+</body>
+</html>

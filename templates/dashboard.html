@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Dashboard</title>
+</head>
+<body>
+    <h1>SELLER DASHBOARD</h1>
+    <P>
+        <a href="/dognation">Dognation</a>
+        <table border="1" align="centre">
+            <tr>
+                <th>sr.no.</th>
+                <th>breed_name</th>
+                <th>gender</th>
+                <th>age</th>
+                <th>vaccine</th>
+                <th>price</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+            {% for x in data %}
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td>{{x.breed_name}}</td>
+                    {% if x.gender == "1" %}
+                        <td>male</td>
+                    {% else %}
+                        <td>female</td>
+                    {% endif %}
+                    <td>{{x.age}}</td>
+                    {% if x.vaccine == "1" %}
+                        <td>done</td>
+                    {% else %}
+                        <td>pending</td>
+                    {% endif %}
+                    <td>{{x.price}}</td>
+                    <td><a href="/edit/{{x.id}}">edit</a></td>
+                    <td><a href="/delete/{{x.id}}">delete</a></td>
+
+                </tr>
+            {% endfor %}    
+        </table>
+    </P>
+    <table>
+        <tr>
+            <th></th>
+        </tr>
+    </table>
+
+    <div>
+        <h2>Filter by Gender</h2>
+        <p><a href="/dashboard">All</a></p>
+        <p><a href="/gender/1">male</a></p>
+        <p><a href="/gender/2">female</a></p>
+    </div>
+
+    <div>
+        <h2>Filter by Vaccination</h2>
+        <p><a href="/dashboard">All</a></p>
+        <p><a href="/vaccine/1">Done</a></p>
+        <p><a href="/vaccine/2">Pending</a></p>
+    </div>
+
+    <div>
+        <h2>Sort By Price</h2>
+        <p><a href="/price/1">Low to High</a></p>
+        <p><a href="/price/2">High to Low</a></p>
+    </div>
+
+    <div>
+        <h2>Filter By Price</h2>
+        <p><a href="/filp/1"> > 20000 </a></p>
+        <p><a href="/filp/2"> < 20000 </a></p>
+    </div>
+
+    <hr>
+        <div>
+            <form method="POST" action="/multifilter">
+                {% csrf_token %}
+                <h2>Filter By Gender</h2>
+                <p><input type="radio" name="gend" value="1" id="">Male</p>
+                <p><input type="radio" name="gend" value="2" id="">Female</p>
+
+                <h2>Filter By Vaccine</h2>
+                <p><input type="radio" name="vac" value="1" id="">Done</p>
+                <p><input type="radio" name="vac" value="2" id="">Pending</p>
+
+                <input type="submit" value="Apply">
+            </form>
+        </div>
+    
+</body>
+</html>

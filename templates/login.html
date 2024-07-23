@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h1 align="center">WELCOME TO DOGGERS</h1>
+</head>
+<body>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table border="1" align="center"><br><br>
+            {{form}}
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="login"></td>
+            </tr>
+            <tr>
+                <td><a href="/registeruser">New User</a></td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
